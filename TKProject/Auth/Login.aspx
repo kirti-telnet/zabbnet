@@ -15,11 +15,11 @@
 
                 <div>
                     <div class="form-group has-feedback">
-                        <input type="email" class="form-control" placeholder="Corporate Email Only">
+                        <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate Email only" runat="server"></asp:TextBox>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
@@ -37,10 +37,10 @@
                     </div>
                 </div>
                 <a href="#">I forgot my password</a><br>
-                <a href="register.html" class="text-center">Register your company</a>
-
+                <a href="Registration.aspx" class="text-center">Register your company</a>
+                <asp:Label ID="lbl" runat="server"></asp:Label>
             </div>
         </div>
-
+    
 </asp:Content>
 

@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Header.ascx.cs" Inherits="Header" %>
 <header class="main-header">
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
         <span class="logo-mini"><b>N</b>VT</span>
         <span class="logo-lg"><b>N</b>VT</span>
     </a>
@@ -190,7 +190,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image" />
                         <span class="hidden-xs">
-                            Alexander Pierce
+                            <asp:Label ID="lbl" runat="server"></asp:Label>
                         </span>
                     </a>
                     <ul class="dropdown-menu">

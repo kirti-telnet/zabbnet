@@ -3,7 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    
+    <script type="text/javascript">
+        function validateControl() {
+            var name = document.getElementById("<%=cname.ClientID %>").value;
+            var num = document.getElementById("<%=cnum.ClientID %>").value;
+            var email = document.getElementById("<%=cemail.ClientID %>").value;
+            var pass = document.getElementById("<%=cpass.ClientID %>").value;
+            var rpass = document.getElementById("<%=crpass.ClientID %>").value;
+            if (name == "" && num == "" && email == "" && pass == "" && rpass == "") {
+                alert("Empty fields..!!");
+            }
+        }
+    </script>
+   
     <div class="register-box">
         <div class="register-logo">
             <div>
@@ -17,24 +29,24 @@
 
             <div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cname" CssClass="form-control" placeholder="Company Name" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cname" CssClass="form-control" placeholder="Company Name" runat="server" onblur="validateControl()"></asp:TextBox>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cnum" CssClass="form-control" placeholder="Phone Number" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cnum" CssClass="form-control" placeholder="Phone Number" runat="server" onblur="validateControl()"></asp:TextBox>
                     <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate email only" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate email only" runat="server" onblur="validateControl()"></asp:TextBox>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" runat="server" onblur="validateControl()" TextMode="Password"></asp:TextBox>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="crpass" CssClass="form-control" placeholder="Retype password" runat="server"></asp:TextBox>
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                    <asp:TextBox ID="crpass" CssClass="form-control" placeholder="Retype password" runat="server" onblur="validateControl()" TextMode="Password"></asp:TextBox>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
@@ -46,11 +58,11 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <asp:Button CssClass="btn btn-primary btn-block btn-flat" ID="btn" runat="server" Text="Register" />
+                        <asp:Button CssClass="btn btn-primary btn-block btn-flat" ID="btn" runat="server" OnClick="btn_Click" Text="Register" />
                     </div>
                 </div>
             </div>
-            <a href="login.html" class="text-center">I already have a account</a>
+            <a href="Login.aspx" class="text-center">I already have a account</a>
         </div>
     </div>
     
