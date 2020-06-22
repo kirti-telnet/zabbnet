@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Team.aspx.cs" Inherits="Team" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Issue.aspx.cs" Inherits="Issue" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="content-wrapper">
         <section class="content-header">
             <h1>Team
@@ -74,15 +73,13 @@
                         <div class="box-header">
                             <h3 class="box-title">Data Table With Full Features</h3>
                         </div>
-                        <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>UName</th>
-                                        <th>UEmail</th>
-                                        <th>UPassword</th>
-                                        <th>UAccess</th>
+                                        <th>Ttitle</th>
+                                        <th>Tdesc</th>
+                                        <th>IsSolved</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tlist" runat="server">
@@ -261,6 +258,5 @@
         </div>
     </aside>
     <div class="control-sidebar-bg"></div>
-
 </asp:Content>
 

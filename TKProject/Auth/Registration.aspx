@@ -4,18 +4,69 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script type="text/javascript">
-        function validateControl() {
-            var name = document.getElementById("<%=cname.ClientID %>").value;
-            var num = document.getElementById("<%=cnum.ClientID %>").value;
-            var email = document.getElementById("<%=cemail.ClientID %>").value;
-            var pass = document.getElementById("<%=cpass.ClientID %>").value;
-            var rpass = document.getElementById("<%=crpass.ClientID %>").value;
-            if (name == "" && num == "" && email == "" && pass == "" && rpass == "") {
-                alert("Empty fields..!!");
+        function isValidCompName() {
+            var id;
+            var temp = document.getElementById("<%=cname.ClientID %>");
+            id = temp.value;
+            if (id == "") {
+                alert("Please enter company name" + "\n");
+            }
+            else {
+                return true;
+            }
+        }
+        function isValidPhone() {
+            var id;
+            var temp = document.getElementById("<%=cnum.ClientID %>");
+            id = temp.value;
+            var re;
+            re = /^[0-9]+$/;
+            var digits = /\d(10)/;
+            if (id == "") {
+                alert("Please enter phone no" + "\n");
+            } else if (re.test(id)) {
+                return true;
+            } else {
+                alert("Phone no should be digits only" + "\n");
+            }
+        }
+        function isValidEmail() {
+            var id;
+            var temp = document.getElementById("<%=cemail.ClientID %>");
+            id = temp.value;
+            var re = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+            if (id == "") {
+                alert("Please Enter Email" + "\n");
+            } else if (re.test(id)) {
+                return true;
+            } else {
+                alert("Email should be in the form ex:abc@xyz.com" + "\n");
+            }
+        }
+        function isValidPassword() {
+            var id;
+            var temp = document.getElementById("<%=cpass.ClientID %>");
+            id = temp.value;
+            if (id == "") {
+                alert("Please enter password" + "\n");
+            }
+            else {
+                return true;
+            }
+        }
+        function isValidConfirmPass() {
+            var uidpwd;
+            var uidcnmpwd;
+            var tempcnmpwd = document.getElementById("<%=crpass.ClientID %>");
+            uidcnmpwd = tempcnmpwd.value;
+            var temppwd = document.getElementById("<%=cpass.ClientID %>");
+            uidpwd = temppwd.value;
+            if (uidcnmpwd == "" || uidcnmpwd != uidpwd) {
+                alert("Please re-enter password to confirm" + "\n");
             }
         }
     </script>
-   
+
     <div class="register-box">
         <div class="register-logo">
             <div>
@@ -29,32 +80,32 @@
 
             <div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cname" CssClass="form-control" placeholder="Company Name" runat="server" onblur="validateControl()"></asp:TextBox>
+                    <asp:TextBox ID="cname" CssClass="form-control" placeholder="Company Name" onblur="isValidCompName()" runat="server"></asp:TextBox>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cnum" CssClass="form-control" placeholder="Phone Number" runat="server" onblur="validateControl()"></asp:TextBox>
+                    <asp:TextBox ID="cnum" CssClass="form-control" placeholder="Phone Number" onblur="isValidPhone()" runat="server"></asp:TextBox>
                     <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate email only" runat="server" onblur="validateControl()"></asp:TextBox>
+                    <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate email only" onblur="isValidEmail()" runat="server"></asp:TextBox>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" runat="server" onblur="validateControl()" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" onblur="isValidPassword()" runat="server" TextMode="Password"></asp:TextBox>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <asp:TextBox ID="crpass" CssClass="form-control" placeholder="Retype password" runat="server" onblur="validateControl()" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="crpass" CssClass="form-control" placeholder="Retype password" onblur="isValidConfirmPass()" runat="server" TextMode="Password"></asp:TextBox>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" id="ChckBox" runat="server" />
+                            <asp:Label runat="server">
+                                <asp:CheckBox ID="ChckBox" runat="server" />
                                 <span style="font-size: medium; padding: 10px;">I agree to the <a href="#">terms</a></span>
-                            </label>
+                            </asp:Label>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -65,6 +116,6 @@
             <a href="Login.aspx" class="text-center">I already have a account</a>
         </div>
     </div>
-    
+
 </asp:Content>
 

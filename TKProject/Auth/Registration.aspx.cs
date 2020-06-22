@@ -19,11 +19,11 @@ public partial class Auth_Registration : System.Web.UI.Page
         string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
         con.Open();
-        SqlCommand cmd = new SqlCommand("insert into CompanyMaster values(@cname,@num,@email,@passwd,1)", con);
+        SqlCommand cmd = new SqlCommand("insert into CompanyMaster(CName,CNumber,CEmail,CPassword,CSubscrip) values(@cname,@num,@email,@passwd,1)", con);
         cmd.Parameters.AddWithValue("cname", cname.Text);
-        cmd.Parameters.AddWithValue("num",cnum.Text);
-        cmd.Parameters.AddWithValue("email",cemail.Text);
-        cmd.Parameters.AddWithValue("passwd",cpass.Text);
+        cmd.Parameters.AddWithValue("num", cnum.Text);
+        cmd.Parameters.AddWithValue("email", cemail.Text);
+        cmd.Parameters.AddWithValue("passwd", cpass.Text);
         int x = cmd.ExecuteNonQuery();
         con.Close();
         if (x != 0)
@@ -31,5 +31,6 @@ public partial class Auth_Registration : System.Web.UI.Page
             Response.Redirect("Login.aspx");
         }
     }
+
 
 }

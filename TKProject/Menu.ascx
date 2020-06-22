@@ -36,6 +36,11 @@
                     <i class="fa fa-circle-o"></i><span>Team</span>
                 </a>
             </li>
+            <li>
+                <a href="Issue.aspx">
+                    <i class="fa fa-circle-o"></i><span>Issue</span>
+                </a>
+            </li>
             <li class="treeview" style="display:none;">
                 <a href="#">
                     <i class="fa fa-files-o"></i>

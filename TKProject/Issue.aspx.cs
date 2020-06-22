@@ -1,15 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Text;
 
-public partial class Team : System.Web.UI.Page
+public partial class Issue : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -23,7 +21,7 @@ public partial class Team : System.Web.UI.Page
         string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
         con.Open();
-        string query = "Select UName,UEmail,UPassword,UAccess from UserMaster";
+        string query = "Select Ttitle,Tdesc,IsSolved from TMaster";
         SqlCommand cmd = new SqlCommand(query, con);
         SqlDataReader dr = cmd.ExecuteReader();
         string UnreadText = "";
@@ -31,10 +29,9 @@ public partial class Team : System.Web.UI.Page
         while (dr.Read())
         {
             UnreadText += "<tr>";
-            UnreadText += "<td>" + dr["UName"] + "</td>";
-            UnreadText += "<td>" + dr["UEmail"] + "</td>";
-            UnreadText += "<td>" + dr["UPassword"] + "</td>";
-            UnreadText += "<td>" + dr["UAccess"] + "</td>";
+            UnreadText += "<td>" + dr["Ttitle"] + "</td>";
+            UnreadText += "<td>" + dr["Tdesc"] + "</td>";
+            UnreadText += "<td>" + dr["IsSolved"] + "</td>";
             UnreadText += "</tr>";
             tlist.InnerHtml = UnreadText;
             i++;
