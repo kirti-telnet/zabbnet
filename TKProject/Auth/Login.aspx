@@ -3,6 +3,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <script type="text/javascript">
+        function isValidEmail() {
+            var id;
+            var temp = document.getElementById("<%=cemail.ClientID %>");
+            id = temp.value;
+            var re = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+            if (id == "") {
+                alert("Please Enter Email" + "\n");
+            } else if (re.test(id)) {
+                return true;
+            } else {
+                alert("Email should be in the form ex:abc@xyz.com" + "\n");
+            }
+        }
+        function isValidPassword() {
+            var id;
+            var temp = document.getElementById("<%=cpass.ClientID %>");
+            id = temp.value;
+            if (id == "") {
+                alert("Please enter password" + "\n");
+            }
+            else {
+                return true;
+            }
+        }
+    </script>
         <div class="login-box">
             <div class="login-logo">
                 <div>
@@ -15,11 +41,11 @@
 
                 <div>
                     <div class="form-group has-feedback">
-                        <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate Email only" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate Email only" onblur="isValidEmail()" runat="server"></asp:TextBox>
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" TextMode="Password" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" TextMode="Password" onblur="isValidPassword()" runat="server"></asp:TextBox> 
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
@@ -32,7 +58,7 @@
                             </div>
                         </div>
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <asp:Button ID="btn_login" CssClass="btn btn-primary btn-block btn-flat" runat="server" Text="Sign In" OnClick="btn_login_Click" />
                         </div>
                     </div>
                 </div>
