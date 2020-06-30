@@ -65,6 +65,9 @@
                 alert("Please re-enter password to confirm" + "\n");
             }
         }
+        function ShowPopup() {
+            $("#MyPopup").modal("show");
+        }
     </script>
 
     <div class="register-box">
@@ -116,6 +119,22 @@
             <a href="Login.aspx" class="text-center">I already have a account</a>
         </div>
     </div>
-
+    <div id="MyPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;</button>
+                    <h4 class="modal-title">Company Registration</h4>
+                </div>
+                <div class="modal-body">
+                    Company Registered Successfully..!!
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btn_Close" CssClass="btn btn-primary" Text="Close" OnClick="btn_Close_Click" runat="server" />
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
 

@@ -16,8 +16,8 @@ public partial class Auth_Login : System.Web.UI.Page
         string pass = cpass.Text;
         string id = string.Empty;
         HttpCookie cinfo = new HttpCookie("cinfo");
-        cinfo["CEmail"] = cemail.Text;
-        cinfo["CPass"] = cpass.Text;
+        cinfo.Values["CEmail"] = cemail.Text;
+        cinfo.Values["CPass"] = cpass.Text;
         Response.Cookies.Add(cinfo);
         string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);

@@ -1,6 +1,7 @@
-﻿  using System;
+﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web;
 
 public partial class Auth_Registration : System.Web.UI.Page
 {
@@ -23,9 +24,17 @@ public partial class Auth_Registration : System.Web.UI.Page
         con.Close();
         if (x != 0)
         {
-            Response.Redirect("Login.aspx");
+            ShowPopup();
         }
     }
 
+    private void ShowPopup()
+    {
+        ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup();", true);
+    }
 
+    protected void btn_Close_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
 }
