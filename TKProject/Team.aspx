@@ -3,13 +3,71 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<<<<<<< Updated upstream
 
+=======
+    <script type="text/javascript">
+        function isValidEmpName() {
+            var id;
+            var temp = document.getElementById("<%=empname.ClientID %>");
+            id = temp.value;
+            if (id == "") {
+                alert("Please enter employee name" + "\n");
+            }
+            else {
+                return true;
+            }
+        }
+        function isValidEmail() {
+            var id;
+            var temp = document.getElementById("<%=empemail.ClientID%>");
+            id = temp.value;
+            var re = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+            if (id == "") {
+                alert("Please Enter Email" + "\n");
+            } else if (re.test(id)) {
+                return true;
+            } else {
+                alert("Email should be in the form ex:abc@xyz.com" + "\n");
+            }
+        }
+        function isValidPassword() {
+            var id;
+            var temp = document.getElementById("<%=emppass.ClientID %>");
+            id = temp.value;
+            if (id == "") {
+                alert("Please enter password" + "\n");
+            }
+            else {
+                return true;
+            }
+        }
+        function isValidConfirmPass() {
+            var uidpwd;
+            var uidcnmpwd;
+            var tempcnmpwd = document.getElementById("<%=emprpass.ClientID %>");
+            uidcnmpwd = tempcnmpwd.value;
+            var temppwd = document.getElementById("<%=emppass.ClientID %>");
+            uidpwd = temppwd.value;
+            if (uidcnmpwd == "" || uidcnmpwd != uidpwd) {
+                alert("Please re-enter password to confirm" + "\n");
+            }
+        }
+        function ShowPopup() {
+            $("#MyPopup").modal("show");
+        }
+    </script>
+>>>>>>> Stashed changes
     <div class="content-wrapper">
         <section class="content-header">
             <h1>Team
                 <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
+<<<<<<< Updated upstream
+=======
+                <li><a href="#" onclick="ShowPopup()"><i class="fa fa-plus-circle"></i>Add Employee</a></li>
+>>>>>>> Stashed changes
                 <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li class="active">Team</li>
             </ol>
@@ -74,11 +132,18 @@
                         <div class="box-header">
                             <h3 class="box-title">Data Table With Full Features</h3>
                         </div>
+<<<<<<< Updated upstream
                         <!-- /.box-header -->
+=======
+>>>>>>> Stashed changes
                         <div class="box-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+<<<<<<< Updated upstream
+=======
+                                        <th>UEid</th>
+>>>>>>> Stashed changes
                                         <th>UName</th>
                                         <th>UEmail</th>
                                         <th>UPassword</th>
@@ -261,6 +326,51 @@
         </div>
     </aside>
     <div class="control-sidebar-bg"></div>
+<<<<<<< Updated upstream
+=======
+    <div id="MyPopup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        &times;</button>
+                    <h4 class="modal-title">Employee Registration</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group has-feedback">
+                        <asp:TextBox ID="empid" CssClass="form-control" placeholder="Employee Id" runat="server"></asp:TextBox>
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <asp:TextBox ID="empname" CssClass="form-control" placeholder="Employee Name" onblur="isValidEmpName()" runat="server"></asp:TextBox>
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <asp:TextBox ID="empemail" CssClass="form-control" placeholder="Employee Email" onblur="isValidEmail()" runat="server"></asp:TextBox>
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <asp:TextBox ID="emppass" CssClass="form-control" placeholder="Password" TextMode="Password" onblur="isValidPassword()" runat="server"></asp:TextBox>
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <asp:TextBox ID="emprpass" CssClass="form-control" placeholder="Retype password" TextMode="Password" onblur="isValidConfirmPass()" runat="server"></asp:TextBox>
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <asp:DropDownList ID="emprole" DataTextField="RName" DataValueField="Rid" CssClass="form-control" runat="server">
+                            
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="btn_Add" CssClass="btn btn-primary" Text="Add" OnClick="btn_Add_Click" runat="server" />
+                    <asp:Label ID="lbl1" runat="server"></asp:Label>
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> Stashed changes
 
 </asp:Content>
 
