@@ -9,8 +9,8 @@
                 <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active">Dashboard</li>
+                <li><a href="Dashboard.aspx"><i class="fa fa-dashboard"></i>Zabbnet</a></li>
+                <li class="active"><a href="Dashboard.aspx"></a> Dashboard</li>
             </ol>
         </section>
         <section class="content">

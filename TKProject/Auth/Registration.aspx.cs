@@ -1,8 +1,5 @@
 ﻿using System;
-<<<<<<< Updated upstream
-=======
 using System.Activities.Statements;
->>>>>>> Stashed changes
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web;
@@ -11,11 +8,7 @@ public partial class Auth_Registration : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-<<<<<<< Updated upstream
-
-=======
         
->>>>>>> Stashed changes
     }
 
     protected void btn_Click(object sender, EventArgs e)
@@ -34,13 +27,8 @@ public partial class Auth_Registration : System.Web.UI.Page
         {
             ShowPopup();
         }
-<<<<<<< Updated upstream
-    }
-
-=======
         
     }
->>>>>>> Stashed changes
     private void ShowPopup()
     {
         ClientScript.RegisterStartupScript(this.GetType(), "Popup", "ShowPopup();", true);
@@ -50,8 +38,5 @@ public partial class Auth_Registration : System.Web.UI.Page
     {
         Response.Redirect("Login.aspx");
     }
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 }

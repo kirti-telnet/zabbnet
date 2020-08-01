@@ -68,8 +68,6 @@
         function ShowPopup() {
             $("#MyPopup").modal("show");
         }
-<<<<<<< Updated upstream
-=======
         function isCheck() {
             if (document.getElementById('<%=ChckBox.ClientID%>').checked) {
                 return true;
@@ -78,7 +76,6 @@
                 alert("Please agree to terms and conditions..!!");
             }
         }
->>>>>>> Stashed changes
     </script>
 
     <div class="register-box">
@@ -116,13 +113,8 @@
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
-<<<<<<< Updated upstream
-                            <asp:Label runat="server">
-                                <asp:CheckBox ID="ChckBox" runat="server" />
-=======
                             <asp:Label runat="server" >
                                 <asp:CheckBox ID="ChckBox" runat="server" onclick="isCheck()"/>
->>>>>>> Stashed changes
                                 <span style="font-size: medium; padding: 10px;">I agree to the <a href="#">terms</a></span>
                             </asp:Label>
                         </div>

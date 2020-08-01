@@ -60,28 +60,28 @@ $(function () {
   })
 })
 
-$(function () {
-  'use strict'
-  var i = $('<i />', { 'class': 'fa fa-star-o' })
-  i.css('color', '#fff')
-  var a = $('<a />', { href: 'https://dashboardpack.com/' })
-  a.append(i)
-  var span = $('<span />')
-  span.append('Admin Templates')
-  span.css('color', '#fff')
-  a.append(span)
-  var li = $('<li />', { 'class': 'bg-success' })
-  li.append(a)
-  li.on('mouseover', function () {
-    $(this).find('a').first().css('background-color', '#008d4c')
-    $(this).find('.fa').removeClass('fa-star-o').addClass('fa-star')
-  })
-  li.on('mouseout', function () {
-    $(this).find('a').first().css('background-color', '#00a65a')
-    $(this).find('.fa').removeClass('fa-star').addClass('fa-star-o')
-  })
-  $('.sidebar-menu').append(li)
-})
+//$(function () {
+//  'use strict'
+//  var i = $('<i />', { 'class': 'fa fa-star-o' })
+//  i.css('color', '#fff')
+//  var a = $('<a />', { href: 'https://dashboardpack.com/' })
+//  a.append(i)
+//  var span = $('<span />')
+//  span.append('Admin Templates')
+//  span.css('color', '#fff')
+//  a.append(span)
+//  var li = $('<li />', { 'class': 'bg-success' })
+//  li.append(a)
+//  li.on('mouseover', function () {
+//    $(this).find('a').first().css('background-color', '#008d4c')
+//    $(this).find('.fa').removeClass('fa-star-o').addClass('fa-star')
+//  })
+//  li.on('mouseout', function () {
+//    $(this).find('a').first().css('background-color', '#00a65a')
+//    $(this).find('.fa').removeClass('fa-star').addClass('fa-star-o')
+//  })
+//  $('.sidebar-menu').append(li)
+//})
 
 $(function () {
   'use strict'
@@ -129,34 +129,34 @@ $(function () {
     'font-size': '20px'
   }
 
-  var wrapper = $('<div />').css(wrapper_css)
-  var link    = $('<a />', { href: 'https://dashboardpack.com/' })
-    .html('Looking for an admin dashboard template based on Bootstrap 4, Vue, React or Angular? Look no further!')
-    .css(link_css)
-    .hover(function () {
-      $(this).css(link_hover_css)
-    }, function () {
-      $(this).css(link_css)
-    })
-  var btn     = $('<a />', {
-    'class': 'btn btn-default btn-sm',
-    href   : 'https://dashboardpack.com/'
-  }).html('Find out More!').css(btn_css)
-  var close   = $('<a />', {
-    'class'         : 'float-right',
-    href            : '#',
-    'data-toggle'   : 'tooltip',
-    'data-placement': 'left',
-    'title'         : 'Never show me this again!'
-  }).html('&times;')
-    .css(close_css)
-    .click(function (e) {
-      e.preventDefault()
-      $(wrapper).slideUp()
-      if (ds) {
-        ds.setItem('no_show', true)
-      }
-    })
+  //var wrapper = $('<div />').css(wrapper_css)
+  //var link    = $('<a />', { href: 'https://dashboardpack.com/' })
+  //  .html('Looking for an admin dashboard template based on Bootstrap 4, Vue, React or Angular? Look no further!')
+  //  .css(link_css)
+  //  .hover(function () {
+  //    $(this).css(link_hover_css)
+  //  }, function () {
+  //    $(this).css(link_css)
+  //  })
+  //var btn     = $('<a />', {
+  //  'class': 'btn btn-default btn-sm',
+  //  href   : 'https://dashboardpack.com/'
+  //}).html('Find out More!').css(btn_css)
+  //var close   = $('<a />', {
+  //  'class'         : 'float-right',
+  //  href            : '#',
+  //  'data-toggle'   : 'tooltip',
+  //  'data-placement': 'left',
+  //  'title'         : 'Never show me this again!'
+  //}).html('&times;')
+  //  .css(close_css)
+  //  .click(function (e) {
+  //    e.preventDefault()
+  //    $(wrapper).slideUp()
+  //    if (ds) {
+  //      ds.setItem('no_show', true)
+  //    }
+  //  })
 
   wrapper.append(close)
   wrapper.append(link)

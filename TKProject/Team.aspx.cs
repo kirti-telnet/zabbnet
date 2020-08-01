@@ -1,30 +1,5 @@
 ﻿using System;
 using System.Configuration;
-<<<<<<< Updated upstream
-using System.Data.SqlClient;
-using System.Web;
-
-public partial class Team : System.Web.UI.Page
-{
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        HttpCookie coookie = Request.Cookies["cinfo"];
-        if (coookie != null)
-        {
-            BindData();
-        }
-        else
-        {
-            Response.Redirect("/Auth/Login.aspx");
-        }
-    }
-    private void BindData()
-    {
-        string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
-        SqlConnection con = new SqlConnection(strcon);
-        con.Open();
-        string query = "Select UName,UEmail,UPassword,UAccess from UserMaster";
-=======
 using System.Data;
 using System.Data.SqlClient;
 using System.Web;
@@ -56,7 +31,6 @@ public partial class Team : System.Web.UI.Page
         SqlConnection con = new SqlConnection(strcon);
         con.Open();
         string query = " Select UEid,UName,UEmail,UPass,UAccess from UserMaster";
->>>>>>> Stashed changes
         SqlCommand cmd = new SqlCommand(query, con);
         SqlDataReader dr = cmd.ExecuteReader();
         string UnreadText = "";
@@ -64,25 +38,18 @@ public partial class Team : System.Web.UI.Page
         while (dr.Read())
         {
             UnreadText += "<tr>";
-<<<<<<< Updated upstream
-            UnreadText += "<td>" + dr["UName"] + "</td>";
-            UnreadText += "<td>" + dr["UEmail"] + "</td>";
-            UnreadText += "<td>" + dr["UPassword"] + "</td>";
-=======
             UnreadText += "<td>" + dr["UEid"] + "</td>";
             UnreadText += "<td>" + dr["UName"] + "</td>";
             UnreadText += "<td>" + dr["UEmail"] + "</td>";
             UnreadText += "<td>" + dr["UPass"] + "</td>";
->>>>>>> Stashed changes
             UnreadText += "<td>" + dr["UAccess"] + "</td>";
+            UnreadText += "<td>" + "<button><i class='ion ion-android-delete'></i></button>" + "</td>";
             UnreadText += "</tr>";
             tlist.InnerHtml = UnreadText;
             i++;
         }
         con.Close();
     }
-<<<<<<< Updated upstream
-=======
     private void BindDropDown()
     {
         SqlConnection conn = new SqlConnection(strcon);
@@ -149,5 +116,4 @@ public partial class Team : System.Web.UI.Page
             BindData();
         }
     }
->>>>>>> Stashed changes
 }

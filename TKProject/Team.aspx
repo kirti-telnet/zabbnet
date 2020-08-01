@@ -3,9 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-<<<<<<< Updated upstream
-
-=======
     <script type="text/javascript">
         function isValidEmpName() {
             var id;
@@ -57,19 +54,15 @@
             $("#MyPopup").modal("show");
         }
     </script>
->>>>>>> Stashed changes
     <div class="content-wrapper">
         <section class="content-header">
             <h1>Team
                 <small>Control panel</small>
             </h1>
             <ol class="breadcrumb">
-<<<<<<< Updated upstream
-=======
                 <li><a href="#" onclick="ShowPopup()"><i class="fa fa-plus-circle"></i>Add Employee</a></li>
->>>>>>> Stashed changes
-                <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active">Team</li>
+                <li><a href="Dashboard.aspx"><i class="fa fa-dashboard"></i>Zabbnet</a></li>
+                <li class="active"><a href="Team.aspx">Team</a></li>
             </ol>
         </section>
         <section class="content">
@@ -77,11 +70,12 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
-                            <p>New Orders</p>
+                            <h3>0</h3>
+                            <p>Total Employees</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-android-people"></i>
+                            
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
@@ -89,11 +83,11 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-                            <p>Bounce Rate</p>
+                            <h3>0</h3>
+                            <p>Active Employees</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-stats-bars"></i>
+                            <i class="ion ion-android-contact"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
@@ -101,11 +95,11 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>44</h3>
-                            <p>User Registrations</p>
+                            <h3>0</h3>
+                            <p>Online Employees</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-person-add"></i>
+                            <i class="ion ion-android-person"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
@@ -113,11 +107,11 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
-                            <p>Unique Visitors</p>
+                            <h3>0</h3>
+                            <p>Archive Employees</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="ion ion-android-delete"></i>
                         </div>
                         <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
@@ -132,23 +126,18 @@
                         <div class="box-header">
                             <h3 class="box-title">Data Table With Full Features</h3>
                         </div>
-<<<<<<< Updated upstream
-                        <!-- /.box-header -->
-=======
->>>>>>> Stashed changes
                         <div class="box-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-<<<<<<< Updated upstream
-=======
-                                        <th>UEid</th>
->>>>>>> Stashed changes
-                                        <th>UName</th>
-                                        <th>UEmail</th>
-                                        <th>UPassword</th>
-                                        <th>UAccess</th>
+                                        <th>Employee ID</th>
+                                        <th>Employee Name</th>
+                                        <th>Employee Email</th>
+                                        <th>Employee Password</th>
+                                        <th>Employee Access</th>
+                                        <th>Archive</th>
                                     </tr>
+                                
                                 </thead>
                                 <tbody id="tlist" runat="server">
                                 </tbody>
@@ -326,8 +315,6 @@
         </div>
     </aside>
     <div class="control-sidebar-bg"></div>
-<<<<<<< Updated upstream
-=======
     <div id="MyPopup" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -370,7 +357,6 @@
             </div>
         </div>
     </div>
->>>>>>> Stashed changes
 
 </asp:Content>
 

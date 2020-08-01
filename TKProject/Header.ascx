@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Header.ascx.cs" Inherits="Header" %>
 <header class="main-header">
     <a href="#" class="logo">
-        <span class="logo-mini"><b>N</b>VT</span>
-        <span class="logo-lg"><b>N</b>VT</span>
+        <span class="logo-mini"><b>ZABBNET</b></span>
+        <span class="logo-lg"><b>ZABBNET</b></span>
     </a>
     <nav class="navbar navbar-static-top">
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -35,7 +35,7 @@
                                         <div class="pull-left">
                                             <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image" />
                                         </div>
-                                        <h4>NVT Design Team
+                                        <h4>Zabbnet Design Team
                                                     <small><i class="fa fa-clock-o"></i>2 hours</small>
                                         </h4>
                                         <p>Why not buy a new awesome theme?</p>
