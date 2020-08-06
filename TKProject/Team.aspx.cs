@@ -30,7 +30,7 @@ public partial class Team : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(strcon);
         con.Open();
-        string query = " Select UEid,UName,UEmail,UPass,UAccess from UserMaster";
+        string query = " Select Eid,UName,UDesgination,UEmail,UAccess from UserMaster";
         SqlCommand cmd = new SqlCommand(query, con);
         SqlDataReader dr = cmd.ExecuteReader();
         string UnreadText = "";
@@ -38,10 +38,10 @@ public partial class Team : System.Web.UI.Page
         while (dr.Read())
         {
             UnreadText += "<tr>";
-            UnreadText += "<td>" + dr["UEid"] + "</td>";
+            UnreadText += "<td>" + dr["Eid"] + "</td>";
             UnreadText += "<td>" + dr["UName"] + "</td>";
+            UnreadText += "<td>" + dr["UDesgination"] + "</td>";
             UnreadText += "<td>" + dr["UEmail"] + "</td>";
-            UnreadText += "<td>" + dr["UPass"] + "</td>";
             UnreadText += "<td>" + dr["UAccess"] + "</td>";
             UnreadText += "<td>" + "<button><i class='ion ion-android-delete'></i></button>" + "</td>";
             UnreadText += "</tr>";
@@ -75,12 +75,13 @@ public partial class Team : System.Web.UI.Page
         using(SqlDataReader sdr = qry.ExecuteReader())
         {
             sdr.Read();
-            access = sdr["Rid"].ToString();
+            access = sdr["RName"].ToString();
         }
-        SqlCommand cmd = new SqlCommand("insert into UserMaster(Cid,UEid,UName,UEmail,UPass,UAccess) values(@cid,@ueid,@uname,@uemail,@upasswd,@uaccess)", con);
+        SqlCommand cmd = new SqlCommand("insert into UserMaster(Cid,Eid,UName,UDesgination,UEmail,UPass,UAccess) values(@cid,@eid,@uname,@udesig,@uemail,@upasswd,@uaccess)", con);
         cmd.Parameters.AddWithValue("cid", cid);
-        cmd.Parameters.AddWithValue("ueid", empid.Text);
+        cmd.Parameters.AddWithValue("eid", empid.Text);
         cmd.Parameters.AddWithValue("uname", empname.Text);
+        cmd.Parameters.AddWithValue("udesig",empdesig.Text);
         cmd.Parameters.AddWithValue("uemail", empemail.Text);
         cmd.Parameters.AddWithValue("upasswd", emppass.Text);
         cmd.Parameters.AddWithValue("uaccess",access);

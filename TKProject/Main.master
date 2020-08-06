@@ -64,6 +64,7 @@
                 "bLengthChange": true,
                 "paging": true,
                 "sPaginationType": "full_numbers",
+                "order" : [[1,"asc"]],
                 "jQueryUI": true
             });
         });

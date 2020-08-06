@@ -71,15 +71,15 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Data Table With Full Features</h3>
+                            <h3 class="box-title">Ticket Details</h3>
                         </div>
                         <div class="box-body">
                             <table id="example" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Ttitle</th>
-                                        <th>Tdesc</th>
-                                        <th>IsSolved</th>
+                                        <th>Ticket Title</th>
+                                        <th>Ticket Description</th>
+                                        <th>Solved/Not Solved</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tlist" runat="server">

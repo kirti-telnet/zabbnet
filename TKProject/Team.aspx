@@ -124,7 +124,7 @@
 
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Data Table With Full Features</h3>
+                            <h3 class="box-title">Employee Details</h3>
                         </div>
                         <div class="box-body">
                             <table id="example" class="table table-bordered table-hover">
@@ -132,8 +132,8 @@
                                     <tr>
                                         <th>Employee ID</th>
                                         <th>Employee Name</th>
+                                        <th>Employee Designation</th>
                                         <th>Employee Email</th>
-                                        <th>Employee Password</th>
                                         <th>Employee Access</th>
                                         <th>Archive</th>
                                     </tr>
@@ -331,6 +331,10 @@
                     <div class="form-group has-feedback">
                         <asp:TextBox ID="empname" CssClass="form-control" placeholder="Employee Name" onblur="isValidEmpName()" runat="server"></asp:TextBox>
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <asp:TextBox ID="empdesig" CssClass="form-control" placeholder="Employee Designation" runat="server"></asp:TextBox>
+                        <span class="glyphicon glyphicon-briefcase form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
                         <asp:TextBox ID="empemail" CssClass="form-control" placeholder="Employee Email" onblur="isValidEmail()" runat="server"></asp:TextBox>

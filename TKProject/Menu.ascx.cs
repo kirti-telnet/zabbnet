@@ -7,36 +7,70 @@ public partial class Menu : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        HttpCookie cookies = Request.Cookies["cinfo"];
-        if (cookies != null)
+        HttpCookie CompanyCookies = Request.Cookies["cinfo"];
+        HttpCookie EmployeeCookies = Request.Cookies["empinfo"];
+        if (CompanyCookies==null && EmployeeCookies == null)
         {
-            ShowName();
+            Response.Redirect("/Auth/Login.aspx");
         }
         else
         {
-            HttpCookie reqCookie = Response.Cookies["cinfo"];
-            reqCookie.Expires = DateTime.Now.AddHours(-1);
-            Response.Cookies.Add(reqCookie);
+            if (CompanyCookies != null)
+            {
+                ShowCompanyName();
+            }
+            else if (EmployeeCookies != null)
+            {
+                ShowEmployeeName();
+            }
         }
 
     }
-    private void ShowName()
+    private void ShowCompanyName()
     {
-        string cemail = string.Empty;
-        string pass = string.Empty;
-        string name = string.Empty;
-        string id = string.Empty;
-        HttpCookie reqCookies = Request.Cookies["cinfo"];
-        if (reqCookies != null)
+        string name, cid;
+        string email = String.Empty;
+        string pass = String.Empty;
+        HttpCookie CompanyCookies = Request.Cookies["cinfo"];
+        if (CompanyCookies != null)
         {
-            id = reqCookies["Cid"].ToString();
-            cemail = reqCookies["CEmail"].ToString();
-            pass = reqCookies["CPass"].ToString();
+            cid = CompanyCookies["Cid"].ToString();
+            email = CompanyCookies["CEmail"].ToString();
+            pass = CompanyCookies["CPass"].ToString();
         }
         string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
         SqlConnection con = new SqlConnection(strcon);
         con.Open();
-        string query = "select CName from CompanyMaster where CEmail='" + cemail + "' and CPassword='" + pass + "'";
+        string query = "select CName from CompanyMaster where CEmail='" + email + "' and CPassword='" + pass + "'";
+        SqlCommand cmd = new SqlCommand(query, con);
+        SqlDataReader sdr = cmd.ExecuteReader();
+        if (sdr.Read())
+        {
+            name = sdr[0].ToString();
+            lbl.Text = name;
+        }
+        else
+        {
+            lbl.Text = "Name not found";
+        }
+        con.Close();
+    }
+    private void ShowEmployeeName()
+    {
+        string name, eid;
+        string email = String.Empty;
+        string pass = String.Empty;
+        HttpCookie EmployeeCookies = Request.Cookies["empinfo"];
+        if (EmployeeCookies != null)
+        {
+            eid = EmployeeCookies["Eid"].ToString();
+            email = EmployeeCookies["UEmail"].ToString();
+            pass = EmployeeCookies["UPass"].ToString();
+        }
+        string strcon = ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString;
+        SqlConnection con = new SqlConnection(strcon);
+        con.Open();
+        string query = "select UName from UserMaster where UEmail='" + email + "' and UPass='" + pass + "'";
         SqlCommand cmd = new SqlCommand(query, con);
         SqlDataReader sdr = cmd.ExecuteReader();
         if (sdr.Read())

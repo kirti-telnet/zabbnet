@@ -9,7 +9,9 @@
             var temp = document.getElementById("<%=cname.ClientID %>");
             id = temp.value;
             if (id == "") {
-                alert("Please enter company name" + "\n");
+                var errName = document.getElementById("<%=errorName.ClientID%>");
+                errName.textContent = "Please enter company name";
+                errName.style.color = "red";
             }
             else {
                 return true;
@@ -23,11 +25,14 @@
             re = /^[0-9]+$/;
             var digits = /\d(10)/;
             if (id == "") {
-                alert("Please enter phone no" + "\n");
+                var errNum = document.getElementById("<%=errorNumber.ClientID%>")
+                errNum.textContent = "Please enter phone number";
+                errNum.style.color = "red";
             } else if (re.test(id)) {
                 return true;
             } else {
-                alert("Phone no should be digits only" + "\n");
+                errNum.textContent = "Phone number should be digits only";
+                errNum.style.color = "red";
             }
         }
         function isValidEmail() {
@@ -36,11 +41,16 @@
             id = temp.value;
             var re = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
             if (id == "") {
-                alert("Please Enter Email" + "\n");
+                var errEmail = document.getElementById("<%=errorEmail.ClientID%>");
+                errEmail.textContent = "Email is required";
+                errEmail.style.color = "red";
+                
             } else if (re.test(id)) {
                 return true;
             } else {
-                alert("Email should be in the form ex:abc@xyz.com" + "\n");
+                var errEmail = document.getElementById("<%=errorEmail.ClientID%>");
+                errEmail.textContent = "Email should be in the form ex:abc@xyz.com";
+                errEmail.style.color = "red";
             }
         }
         function isValidPassword() {
@@ -48,7 +58,9 @@
             var temp = document.getElementById("<%=cpass.ClientID %>");
             id = temp.value;
             if (id == "") {
-                alert("Please enter password" + "\n");
+                var errPass = document.getElementById("<%=errorPass.ClientID%>");
+                errPass.textContent = "Please enter password";
+                errPass.style.color = "red";
             }
             else {
                 return true;
@@ -62,19 +74,13 @@
             var temppwd = document.getElementById("<%=cpass.ClientID %>");
             uidpwd = temppwd.value;
             if (uidcnmpwd == "" || uidcnmpwd != uidpwd) {
-                alert("Please re-enter password to confirm" + "\n");
+                var errRPass = document.getElementById("<%=errorRPass.ClientID%>");
+                errRPass.textContent = "Please re-enter password to confirm";
+                errRPass.style.color = "red";
             }
         }
         function ShowPopup() {
             $("#MyPopup").modal("show");
-        }
-        function isCheck() {
-            if (document.getElementById('<%=ChckBox.ClientID%>').checked) {
-                return true;
-            }
-            else {
-                alert("Please agree to terms and conditions..!!");
-            }
         }
     </script>
 
@@ -92,29 +98,34 @@
             <div>
                 <div class="form-group has-feedback">
                     <asp:TextBox ID="cname" CssClass="form-control" placeholder="Company Name" onblur="isValidCompName()" runat="server"></asp:TextBox>
+                    <span><asp:Label EnableViewState="false" ID="errorName" runat="server"></asp:Label></span>
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                     <asp:TextBox ID="cnum" CssClass="form-control" placeholder="Phone Number" onblur="isValidPhone()" runat="server"></asp:TextBox>
+                    <span><asp:Label EnableViewState="false" ID="errorNumber" runat="server"></asp:Label></span>
                     <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                     <asp:TextBox ID="cemail" CssClass="form-control" placeholder="Corporate email only" onblur="isValidEmail()" runat="server"></asp:TextBox>
+                    <span><asp:Label EnableViewState="false" ID="errorEmail" runat="server"></asp:Label></span>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                     <asp:TextBox ID="cpass" CssClass="form-control" placeholder="Password" onblur="isValidPassword()" runat="server" TextMode="Password"></asp:TextBox>
+                    <span><asp:Label EnableViewState="false" ID="errorPass" runat="server"></asp:Label></span>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
                     <asp:TextBox ID="crpass" CssClass="form-control" placeholder="Retype password" onblur="isValidConfirmPass()" runat="server" TextMode="Password"></asp:TextBox>
+                    <span><asp:Label EnableViewState="false" ID="errorRPass" runat="server"></asp:Label></span>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
                         <div class="checkbox icheck">
                             <asp:Label runat="server" >
-                                <asp:CheckBox ID="ChckBox" runat="server" onclick="isCheck()"/>
+                                <asp:CheckBox ID="ChckBox" runat="server" />
                                 <span style="font-size: medium; padding: 10px;">I agree to the <a href="#">terms</a></span>
                             </asp:Label>
                         </div>
